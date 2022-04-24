@@ -13,6 +13,7 @@ class CreateLearningoffersTable extends Migration
             $table->string('description')
                 ->nullable();
             $table->foreignId('owner_id')
+                ->default(1)
                 ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->foreignId('learner_id')

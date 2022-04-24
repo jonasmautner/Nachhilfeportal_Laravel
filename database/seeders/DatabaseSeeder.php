@@ -2,17 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Meetingdate;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        // User::factory(10)->create();
+    public function run() {
+        $this->call(UsersTableSeeder::class);
+        $this->call(MeetingdatesTableSeeder::class);
+        $this->call(LearningoffersTableSeeder::class);
     }
 }
