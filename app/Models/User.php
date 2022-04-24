@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,11 +18,11 @@ class User extends Authenticatable
     protected $casts = ['email_verified_at' => 'datetime'];
 
     public function createoffer():HasMany{
-        return $this->hasMany(Learningoffer::class);
+        return $this->hasMany(Learningoffer::class, 'owner_id', 'id');
     }
 
     public function acceptoffer():HasMany{
-        return $this->hasMany(Learningoffer::class);
+        return $this->hasMany(Learningoffer::class, 'learner_id', 'id');
     }
 
 }
