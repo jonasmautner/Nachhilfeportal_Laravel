@@ -12,7 +12,7 @@ class CreateSubjectsTable extends Migration
             $table->string('title');
             $table->string('teacher')
                 ->nullable();
-            $table->integer('semester');
+            $table->integer('subject_semester');
             $table->timestamps();
         });
     }

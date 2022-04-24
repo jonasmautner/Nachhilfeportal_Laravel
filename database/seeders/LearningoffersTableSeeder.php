@@ -13,7 +13,6 @@ class LearningoffersTableSeeder extends Seeder
     public function run()
     {
         $offer = new Learningoffer();
-        $offer->subject = "Objektorientierte Programmierung";
         $offer->description = "Lorem ipsum dolor sit amet.";
         $offer->accepted_at = new Carbon(); // könnte auch null sein
 

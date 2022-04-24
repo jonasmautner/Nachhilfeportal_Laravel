@@ -9,7 +9,6 @@ class CreateLearningoffersTable extends Migration
     public function up() {
         Schema::create('learningoffers', function (Blueprint $table) {
             $table->id();
-            $table->string('subject');
             $table->foreignId('subject_id')
                 ->default(1)
                 ->references('id')->on('subjects')

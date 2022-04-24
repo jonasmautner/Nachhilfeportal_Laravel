@@ -6,10 +6,9 @@
         <title>Nachhilfeportal</title>
     </head>
     <body>
-        <h4><b>Laravel</b></h4>
-        Hallo Welt von Jonas Mautner!
-{{--        @foreach($users as $user)--}}
-{{--            <h6>Vorname:{{$user->first_name}}, Nachname:{{$user->last_name}}, E-Mail:{{$user->email}}</h6>--}}
-{{--        @endforeach--}}
+        <h1>Registrierte Benutzer:</h1>
+        @foreach($users as $user)
+            <h2>Vorname: {{$user->firstname}}, Nachname: {{$user->lastname}}, E-Mail: {{$user->email}}</h2>
+        @endforeach
     </body>
 </html>

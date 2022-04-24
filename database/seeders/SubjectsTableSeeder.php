@@ -13,13 +13,13 @@ class SubjectsTableSeeder extends Seeder
         $subject = new Subject();
         $subject->title = 'Objektorientierte Programmierung';
         $subject->teacher = 'Wolfgang Schreiner';
-        $subject->semester = 2;
+        $subject->subject_semester = 2;
         $subject->save();
 
         $subject = new Subject();
         $subject->title = 'Web-Architekturen und Frameworks';
         $subject->teacher = 'Elmar Putz';
-        $subject->semester = 6;
+        $subject->subject_semester = 6;
         $subject->save();
     }
 }

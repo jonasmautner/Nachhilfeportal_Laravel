@@ -11,7 +11,7 @@ class Subject extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'teacher', 'semester'];
+    protected $fillable = ['title', 'teacher', 'subject_semester'];
 
     public function learningoffer():BelongsTo {
         return $this->belongsTo(Learningoffer::class, 'subject_id', 'id');
