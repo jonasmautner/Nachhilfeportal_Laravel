@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     public function run() {
+        $this->call(SubjectsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(MeetingdatesTableSeeder::class);
         $this->call(LearningoffersTableSeeder::class);
