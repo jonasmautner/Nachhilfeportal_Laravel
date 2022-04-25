@@ -14,8 +14,8 @@ class Learningoffer extends Model
 
     protected $fillable = ['subject_id', 'description', 'owner_id', 'learner_id', 'accepted_at'];
 
-    public function subject():hasOne {
-        return $this->hasOne(Subject::class, 'id', 'subject_id');
+    public function subject():BelongsTo {
+        return $this->belongsTo(Subject::class, 'id', 'subject_id');
     }
 
     public function owner():BelongsTo {

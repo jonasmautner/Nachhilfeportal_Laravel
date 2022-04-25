@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Subject extends Model
@@ -13,7 +12,7 @@ class Subject extends Model
 
     protected $fillable = ['title', 'teacher', 'subject_semester'];
 
-    public function learningoffer():BelongsTo {
-        return $this->belongsTo(Learningoffer::class, 'subject_id', 'id');
+    public function learningoffer():HasOne {
+        return $this->hasOne(Learningoffer::class, 'subject_id', 'id');
     }
 }

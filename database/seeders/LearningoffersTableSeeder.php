@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subject;
 use App\Models\User;
 use App\Models\Learningoffer;
 use App\Models\Meetingdate;
@@ -19,6 +20,9 @@ class LearningoffersTableSeeder extends Seeder
         $user = User::all()->first();
         $offer->owner()->associate($user);
         $offer->learner()->associate($user);
+
+        $subject = Subject::all()->first();
+        $offer->subject()->associate($subject);
 
         $offer->save();
 
