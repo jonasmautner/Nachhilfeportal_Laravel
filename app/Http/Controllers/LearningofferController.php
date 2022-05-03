@@ -46,7 +46,7 @@ class LearningofferController extends Controller
     /** Lernangebot erstellen -------------------------------------------------------------------------
      * @param Request $request
      * @return JsonResponse
-     * todo owner_id von aktuell eingeloggtem User richtig mitgeben!
+     * todo owner_id von aktuell eingeloggtem User richtig mitgeben, und nur wenn is_learner false
      */
 
     public function createOffer(Request $request):JsonResponse {
@@ -84,6 +84,7 @@ class LearningofferController extends Controller
      * @param Request $request
      * @param string $id
      * @return JsonResponse
+     * todo nur wenn is_learner false
      */
 
     public function editOffer(Request $request, string $id):JsonResponse {
@@ -137,6 +138,7 @@ class LearningofferController extends Controller
      * @param Request $request
      * @param string $id
      * @return JsonResponse
+     * todo nur wenn is_learner true
      */
 
     public function acceptOffer(Request $request, string $id): JsonResponse
@@ -165,6 +167,7 @@ class LearningofferController extends Controller
      * @param int $id
      * @return JsonResponse
      * @throws Exception
+     * todo nur wenn is_learner false
      */
 
     public function deleteOffer(int $id):JsonResponse {
