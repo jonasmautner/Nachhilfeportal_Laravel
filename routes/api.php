@@ -21,3 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('offers', [LearningofferController::class, 'getAllOffers']);
 Route::get('offers/{id}', [LearningofferController::class, 'getOfferById']);
 Route::get('offers/check/{id}', [LearningofferController::class, 'checkOfferById']);
+
+Route::post('offers', [LearningofferController::class, 'createOffer']);
+Route::put('offers/edit/{id}', [LearningofferController::class, 'editOffer']);
+Route::put('offers/accept/{id}', [LearningofferController::class, 'acceptOffer']);
+Route::delete('offers/{id}', [LearningofferController::class, 'deleteOffer']);

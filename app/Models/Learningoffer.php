@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Learningoffer extends Model
 {
@@ -15,15 +14,15 @@ class Learningoffer extends Model
     protected $fillable = ['subject_id', 'description', 'owner_id', 'learner_id', 'accepted_at'];
 
     public function subject():BelongsTo {
-        return $this->belongsTo(Subject::class, 'id', 'subject_id');
+        return $this->belongsTo(Subject::class);
     }
 
     public function owner():BelongsTo {
-        return $this->belongsTo(User::class, 'id', 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id', 'id');
     }
 
     public function learner():BelongsTo {
-        return $this->belongsTo(User::class, 'id', 'learner_id');
+        return $this->belongsTo(User::class, 'learner_id', 'id');
     }
 
     public function meetingdates():BelongsToMany {

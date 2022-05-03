@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subject extends Model
 {
@@ -12,7 +12,7 @@ class Subject extends Model
 
     protected $fillable = ['title', 'teacher', 'subject_semester'];
 
-    public function learningoffer():HasOne {
-        return $this->hasOne(Learningoffer::class, 'subject_id', 'id');
+    public function learningoffers():HasMany {
+        return $this->hasMany(Learningoffer::class);
     }
 }

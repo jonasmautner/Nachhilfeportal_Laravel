@@ -18,11 +18,11 @@ class User extends Authenticatable
     protected $casts = ['email_verified_at' => 'datetime'];
 
     public function createoffer():HasMany{
-        return $this->hasMany(Learningoffer::class, 'owner_id', 'id');
+        return $this->hasMany(Learningoffer::class);
     }
 
     public function acceptoffer():HasMany{
-        return $this->hasMany(Learningoffer::class, 'learner_id', 'id');
+        return $this->hasMany(Learningoffer::class);
     }
 
 }
