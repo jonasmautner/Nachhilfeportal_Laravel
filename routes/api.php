@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::post('auth/login', [AuthController::class, 'login']);
 //Route::get('books', [BookController::class, 'index']);
 
+Route::get('subjects', [LearningofferController::class, 'getAllSubjects']);
 Route::get('offers', [LearningofferController::class, 'getAllOffers']);
 Route::get('offers/{id}', [LearningofferController::class, 'getOfferById']);
 Route::get('offers/check/{id}', [LearningofferController::class, 'checkOfferById']);

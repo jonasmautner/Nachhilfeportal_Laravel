@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Learningoffer;
 use App\Models\Meetingdate;
+use App\Models\Subject;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -12,6 +13,15 @@ use Illuminate\Support\Facades\DB;
 
 class LearningofferController extends Controller
 {
+    /** liefert alle Fächer -------------------------------------------------------------------------
+     * @return JsonResponse
+     */
+
+    public function getAllSubjects():JsonResponse {
+        $subjects = Subject::get();
+        return response()->json($subjects, 200);
+    }
+
     /** liefert alle Lernangebote -------------------------------------------------------------------------
      * @return JsonResponse
      */
