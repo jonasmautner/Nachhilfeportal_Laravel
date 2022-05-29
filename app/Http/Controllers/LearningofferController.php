@@ -65,8 +65,8 @@ class LearningofferController extends Controller
             // Massen-Zuweisung für subject_id, description, owner_id, learner_id, accepted_at (fillable-Array)
             $offer = Learningoffer::create($request->all());
             // Zuweisung meetingdates
-            if (isset($request['dates']) && is_array($request['dates'])) {
-                foreach ($request['dates'] as $meetingdate) {
+            if (isset($request['meetingdates']) && is_array($request['meetingdates'])) {
+                foreach ($request['meetingdates'] as $meetingdate) {
                     if (isset($meetingdate['day']) && isset($meetingdate['from']) && isset($meetingdate['to'])){
                         $dayDate = new Carbon($meetingdate['day']);
                         $fromDate = new Carbon($meetingdate['from']);
@@ -97,7 +97,7 @@ class LearningofferController extends Controller
      * todo nur wenn is_learner false
      */
 
-    public function editOffer(Request $request, string $id):JsonResponse {
+    public function updateOffer(Request $request, string $id):JsonResponse {
         DB::beginTransaction();
         try {
             $offer = Learningoffer::where('id', $id)->with(['meetingdates'])->first();
@@ -106,8 +106,8 @@ class LearningofferController extends Controller
                 $offer->update($request->all());
                 // Zuweisung meetingdates
                 $dateIds = [];
-                if (isset($request['dates']) && is_array($request['dates'])) {
-                    foreach ($request['dates'] as $meetingdate) {
+                if (isset($request['meetingdates']) && is_array($request['meetingdates'])) {
+                    foreach ($request['meetingdates'] as $meetingdate) {
                         if (isset($meetingdate['day']) && isset($meetingdate['from']) && isset($meetingdate['to'])){
                             $dayDate = new Carbon($meetingdate['day']);
                             $fromDate = new Carbon($meetingdate['from']);
