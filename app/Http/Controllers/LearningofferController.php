@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Learningoffer;
 use App\Models\Meetingdate;
 use App\Models\Subject;
+use App\Models\User;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -20,6 +21,15 @@ class LearningofferController extends Controller
     public function getAllSubjects():JsonResponse {
         $subjects = Subject::get();
         return response()->json($subjects, 200);
+    }
+
+    /** liefert Nutzer mit angegebener Id -------------------------------------------------------------------------
+     * @return JsonResponse
+     */
+
+    public function getUserById(int $id):JsonResponse {
+        $user = User::where('id', $id)->first();
+        return response()->json($user, 200);
     }
 
     /** liefert alle Lernangebote -------------------------------------------------------------------------
@@ -56,7 +66,6 @@ class LearningofferController extends Controller
     /** Lernangebot erstellen -------------------------------------------------------------------------
      * @param Request $request
      * @return JsonResponse
-     * todo owner_id von aktuell eingeloggtem User richtig mitgeben, und nur wenn is_learner false
      */
 
     public function createOffer(Request $request):JsonResponse {
@@ -94,7 +103,6 @@ class LearningofferController extends Controller
      * @param Request $request
      * @param string $id
      * @return JsonResponse
-     * todo nur wenn is_learner false
      */
 
     public function updateOffer(Request $request, string $id):JsonResponse {
@@ -148,7 +156,6 @@ class LearningofferController extends Controller
      * @param Request $request
      * @param string $id
      * @return JsonResponse
-     * todo nur wenn is_learner true
      */
 
     public function acceptOffer(Request $request, string $id): JsonResponse
@@ -177,7 +184,6 @@ class LearningofferController extends Controller
      * @param int $id
      * @return JsonResponse
      * @throws Exception
-     * todo nur wenn is_learner false
      */
 
     public function deleteOffer(int $id):JsonResponse {
